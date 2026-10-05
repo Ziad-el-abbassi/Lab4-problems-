@@ -19,6 +19,7 @@ public class IntegerListTest
             printMenu();
             choice = scan.nextInt();
         }
+
     }
     //--------------------------------------
 // Do what the menu item calls for
