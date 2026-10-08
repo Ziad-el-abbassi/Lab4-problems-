@@ -1,9 +1,10 @@
 package instructor;
 import student.*;
 public class Instructor extends Person{
-    private static String employeeNumber;
-    public Instructor(String nom, String prenom, String telephone, String email){
+    private String employeeNumber;
+    public Instructor(String nom, String prenom, String telephone, String email,String employeeNumber){
         super(prenom,nom,telephone,email);
+        this.employeeNumber=employeeNumber;
     };
     public String cleanEmployeeNumber(){
         StringBuilder s=new StringBuilder();

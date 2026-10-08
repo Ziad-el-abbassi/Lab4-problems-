@@ -3,14 +3,15 @@ package student;
 public class Student extends Person {
     private String cne;
     private Major major;
-
+    private static Major maj=new Major("23","Computer science");
     public Student(String nom, String prenom, String telephone, String email, String cne, Major major) {
         super(prenom,nom,telephone,email);
         this.cne=cne;
         this.major=major;
+        major.addStudent(this);
     }
     public Student(String nom, String prenom, String telephone, String email, String cne) {
-        this(prenom,nom, telephone, email,cne,new Major("23","Computer science"));
+        this(nom,prenom, telephone, email,cne,maj);
     }
     public Student(){};
 

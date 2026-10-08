@@ -2,7 +2,7 @@ package instructor;
 
 public class Subject {
     private int id;
-    public Instructor instructor;
+    private Instructor instructor;
     private String code;
     private String title;
     public Subject(int id1, String code1,String title1){
@@ -12,10 +12,10 @@ public class Subject {
     }
     public Subject(){};
     public String normalizedCode(){
-        return this.code.toUpperCase();
+        return this.code.trim().toUpperCase();
     }
     public String properTitle(){
-        StringBuilder s=new StringBuilder();
+        StringBuilder s=new StringBuilder(title);
         s.setCharAt(0,Character.toUpperCase(title.charAt(0)));
         for(int i=0;i<title.length()-1;i++){
             if(title.charAt(i)==' '){
@@ -25,13 +25,19 @@ public class Subject {
         return s.toString();
     }
     public boolean isIntroCourse(){
-        if(this.title.substring(0,5).toLowerCase()=="intro"){
+        if(this.title.toLowerCase().contains("intro")){
             return true;
         }
-        if(this.code.substring(0,6)=="INTRO-"){
+        if(this.code.substring(0,6).equals("INTRO-")){
             return true;
         }
         return false;
+    }
+    public Instructor getInstructor() {
+        return instructor;
+    }
+    public void setInstructor(Instructor instructor) {
+        this.instructor = instructor;
     }
     public String syllabusLine(){
         StringBuilder s=new StringBuilder();
